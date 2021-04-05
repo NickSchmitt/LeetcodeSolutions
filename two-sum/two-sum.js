@@ -4,11 +4,11 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let map = {}
+    let hashMap = new Map
     for (let i=0; i<nums.length; i++){
-        if(map.hasOwnProperty(target-nums[i])){
+        if(hashMap.has(target-nums[i])){
             return [nums.indexOf(target-nums[i]), i]
         }
-        map[nums[i]] = target - nums[i]
+        hashMap.set(nums[i], target-nums[i])
     }
 };
