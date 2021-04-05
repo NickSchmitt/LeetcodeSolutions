@@ -1,3 +1,4 @@
+[Discussion Post (created on 5/3/2021 at 8:12)](https://leetcode.com/problems/largest-unique-number/solution/)  
 <h2>1133. Largest Unique Number</h2><h3>Easy</h3><hr><div><p>Given an array of integers <code>A</code>, return the largest integer that only occurs once.</p>
 
 <p>If no integer occurs once, return -1.</p>
