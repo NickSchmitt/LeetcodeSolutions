@@ -11,5 +11,5 @@
 
 ### Arrays
 
-[941. Valid Mountain Array](valid-mountain-array/README.md)
-[1299. Replace Elements with Greatest Element on Right Side](replace-elements-with-greatest-element-on-right-side/README.md)
+* [941. Valid Mountain Array](valid-mountain-array/README.md)
+* [1299. Replace Elements with Greatest Element on Right Side](replace-elements-with-greatest-element-on-right-side/README.md)
