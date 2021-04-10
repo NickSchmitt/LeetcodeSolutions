@@ -3,9 +3,7 @@ class Solution:
         
         ylength = len(M)
         xlength = len(M[0])
-        arr=[]
         
-        # recursive dfs returns longest path leading to M[y][x], caching along the way
         @cache
         def search_path(y, x):
             val = M[y][x]
