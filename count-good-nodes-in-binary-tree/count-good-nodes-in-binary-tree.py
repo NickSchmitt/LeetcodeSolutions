@@ -7,28 +7,29 @@
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         
-        # recursive dfs search with state to check 
-        def dfs(root, max_sofar):
+        # recursive dfs with state to compare node val to max ancestor val
+        def dfs(root, max_ancestor):
             
-            # the node does not exist so does not contribute to the total good nodes in the tree
+            # if the node does not exist it cannot be a good node
             if not root:
                 return 0
             
-            # initialize total good nodes for this tree
+            # initialize total good nodes for this node and its descendents
             total = 0
             
-            # if the value is greatest we've seen then it's a good node
-            # add it to the total and make it the max so far
-            if root.val >= max_sofar:
+            # if the node's value is greater than the max value of its ancestors
+            # add it to the total
+            # make it the max ancestor for its descendents
+            if root.val >= max_ancestor:
                 total += 1
-                max_sofar = root.val
+                max_ancestor = root.val
                 
-            # run this procedure on the node's children
-            # comparing the children to either the node's value (if it's the max so far) or 
-            total += dfs(root.left, max_sofar) # max_sofar for child node is the larger of previous max and current node val
-            total += dfs(root.right, max_sofar)
+            # run this procedure on the node's descendents
+            # add their totals to the node's to find the total good nodes
+            total += dfs(root.left, max_ancestor)
+            total += dfs(root.right, max_ancestor)
 
             return total
 
-        # start max_sofar with smallest number possible so any value root has is smaller than it
+        # start max_ancestor with smallest number possible so any value root has is smaller than it
         return dfs(root, -float('inf'))
