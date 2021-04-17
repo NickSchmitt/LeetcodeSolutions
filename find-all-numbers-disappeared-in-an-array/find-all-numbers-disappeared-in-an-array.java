@@ -1,23 +1,29 @@
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         
-        for (int i = 0; i<nums.length; i++){
+        // Iterate over each of the elements in the original array
+        for (int i = 0; i < nums.length; i++) {
             
-            // Math.abs to counteract negative marker if num encountered multiple times.
-            // subtracting one to match index with value
-            int newIndex = Math.abs(nums[i])-1;
+            // Treat the value as the new index
+            int newIndex = Math.abs(nums[i]) - 1;
             
-            // mark number at position with negative to ensure the number has been seen 
-            if (nums[newIndex] > 0){
+            // Check the magnitude of value at this new index
+            // If the magnitude is positive, make it negative 
+            // thus indicating that the number nums[i] has 
+            // appeared or has been visited.
+            if (nums[newIndex] > 0) {
                 nums[newIndex] *= -1;
             }
         }
         
+        // Response array that would contain the missing numbers
         List<Integer> result = new LinkedList<Integer>();
         
-        // if it's still positive we haven't seen it
-        for (int i = 1; i <= nums.length; i++){
-            if (nums[i-1] > 0){
+        // Iterate over the numbers from 1 to N and add all those
+        // that have positive magnitude in the array
+        for (int i = 1; i <= nums.length; i++) {
+            
+            if (nums[i - 1] > 0) {
                 result.add(i);
             }
         }
