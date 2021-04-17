@@ -1,3 +1,4 @@
+[Discussion Post (created on 17/3/2021 at 13:3)](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/solution/)  
 <h2>448. Find All Numbers Disappeared in an Array</h2><h3>Easy</h3><hr><div><p>Given an array <code>nums</code> of <code>n</code> integers where <code>nums[i]</code> is in the range <code>[1, n]</code>, return <em>an array of all the integers in the range</em> <code>[1, n]</code> <em>that do not appear in</em> <code>nums</code>.</p>
 
 <p>&nbsp;</p>
