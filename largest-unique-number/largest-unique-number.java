@@ -1,15 +1,19 @@
 class Solution {
-public int largestUniqueNumber(int[] A) {
+    public int largestUniqueNumber(int[] A) {
+        
         Map<Integer, Integer> count = new HashMap<Integer, Integer>();
-        for (int i : A) {
-          count.put(i, count.getOrDefault(i, 0) + 1);
+        int max = Integer.MIN_VALUE;
+        
+        for (int i : A){
+            int x = (count.containsKey(i)) ? -1 : i;
+            count.put(i, x);
         }
-        int result = -1;
-        for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
-            if (entry.getValue() == 1) {
-              result = Math.max(result, entry.getKey());
-            }
+        
+        for (int i : count.values()){
+            max = Math.max(i, max);
         }
-        return result;
+        return max;
+        
+        
     }
 }
