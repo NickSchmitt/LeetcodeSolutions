@@ -9,11 +9,11 @@ impl Solution {
             *map.entry(num).or_insert(0) += 1;
         }
 
-        *map.iter()
+        map.into_iter()
             .rev()
-            .skip_while(|(_,v)|v>&&1)
+            .skip_while(|(_,v)|v>&1)
             .map(|(k, _)| k)
             .next()
-            .unwrap_or(&-1)
+            .unwrap_or(-1)
     }
 }
