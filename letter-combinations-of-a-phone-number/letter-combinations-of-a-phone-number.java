@@ -1,37 +1,32 @@
 class Solution {
     
-    //Array to return
-    private List<String> combinations = new ArrayList<>();
-    
-    // Map of numbers and letters
-    private Map<Character, String> letters = 
+    private Map<Character, String> map = 
         Map.of('2', "abc", '3', "def", '4', "ghi", '5', "jkl", '6', "mno", '7', "pqrs", '8', "tuv", '9', "wxyz");
     
-    // init copy of digits for backtrack function scope
+    private List<String> res = new LinkedList<String>();
+    
     private String phoneDigits;
     
-    // recursive function adds to combinations array
     public List<String> letterCombinations(String digits) {
-        if (digits.length() == 0) return combinations;
+        
+        if (digits.length() == 0) return res;
         phoneDigits = digits;
-        backtrack(0, new StringBuilder());
-        return combinations;
+        dfs(new StringBuilder(), 0);
+        return res;        
     }
     
-    
-    private void backtrack(int index, StringBuilder path) {
-        // add complete path to combinations array
-        if (path.length() == phoneDigits.length()) {
-            combinations.add(path.toString());
+    private void dfs(StringBuilder path, int i){
+        if (path.length() == phoneDigits.length()){
+            res.add(path.toString());
             return;
         }
         
-        // create the path by adding a letter from each digit
-        String possibleLetters = letters.get(phoneDigits.charAt(index));
-        for (char letter: possibleLetters.toCharArray()) {
+        String digitLetters = map.get(phoneDigits.charAt(i));
+        for (char letter : digitLetters.toCharArray()){
             path.append(letter);
-            backtrack(index + 1, path);
-            path.deleteCharAt(path.length() - 1);
+            dfs(path, i+1);
+            path.deleteCharAt(path.length()-1);
+            
         }
-    }    
+    }
 }
