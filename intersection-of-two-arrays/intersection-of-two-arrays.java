@@ -1,12 +1,16 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
         
-        Set<Integer> compareSet = new HashSet<>(), intersectionSet = new HashSet<>();
+        HashSet<Integer> set1 = new HashSet<Integer>(), set2 = new HashSet<Integer>();
         
-        for(int i : nums1) compareSet.add(i);
+        for (int n : nums1) set1.add(n);
+        for (int n : nums2) set2.add(n);
         
-        for(int i : nums2) if(compareSet.contains(i)) intersectionSet.add(i);
+        set1.retainAll(set2);
         
-        return intersectionSet.stream().mapToInt(Number::intValue).toArray();
+        int [] output = new int[set1.size()];
+        int i = 0;
+        for (int n : set1) output[i++] = n;
+        return output;
     }
 }
