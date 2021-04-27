@@ -1,12 +1,10 @@
 impl Solution {
     pub fn is_power_of_three(n: i32) -> bool {
+
+        // max_power_of_three = 3^⌊log_3(max_int)⌋ = 1162261467
+        // powers of three divide by lesser powers of three without remainder
         
-        if n < 0 {return false};
-        
-        let max_exponent = f64::from(i32::max_value()).log(3.0) as u32;
-        let largest_power_of_three: i32 = 3i32.pow(max_exponent);
-        
-        n > 0 && largest_power_of_three % n == 0
+        n > 0 && 1162261467 % n == 0
         
     }
 }
