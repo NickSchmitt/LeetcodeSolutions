@@ -6,4 +6,5 @@ class Solution:
                 nums[last] = nums[i]
                 last+=1
         
-        for i in range(last, len(nums)): nums[i] = 0
+        for i in range(last, len(nums)): 
+            nums[i] = 0
