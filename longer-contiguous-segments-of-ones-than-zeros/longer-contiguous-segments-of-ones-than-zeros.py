@@ -1,18 +1,33 @@
 class Solution:
     def checkZeroOnes(self, s: str) -> bool:
-
-        zero_counter = 0
-        max_zeroes = 0
+        """
+        - count consecutive ones and track high score
+        
+        - count consecutive zeroes and track high score
+        
+        - return high_ones > high_zeroes
+        
+        ---
+        
+        - count conseuctive ones and track high score
+        - return high score
+        """
+        
         one_counter = 0
-        max_ones = 0
-
+        one_high_score = 0
+        
+        zero_counter = 0
+        zero_high_score = 0
+        
         for i in s:
-            if i == '0':
-                one_counter = 0
-                zero_counter += 1
-                max_zeroes = max(zero_counter, max_zeroes)
             if i == '1':
-                zero_counter = 0
                 one_counter += 1
-                max_ones = max(one_counter, max_ones)
-        return max_ones > max_zeroes
+                one_high_score = max(one_counter, one_high_score)
+                zero_counter = 0
+                
+            if i == '0':
+                zero_counter += 1
+                zero_high_score = max(zero_counter, zero_high_score)
+                one_counter = 0
+                
+        return one_high_score > zero_high_score
