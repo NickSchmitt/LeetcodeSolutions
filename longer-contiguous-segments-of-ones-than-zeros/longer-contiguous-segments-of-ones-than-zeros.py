@@ -1,11 +1,11 @@
 class Solution:
     def checkZeroOnes(self, s: str) -> bool:
-        
+
         zero_counter = 0
         max_zeroes = 0
         one_counter = 0
         max_ones = 0
-        
+
         for i in s:
             if i == '0':
                 one_counter = 0
