@@ -1,7 +1,5 @@
 class Solution:
-    def validPalindrome(self, s: str, deleted=False) -> bool:
-        
-        if len(s) == 1: return True
+    def validPalindrome(self, s: str) -> bool:
 
         left=0
         right=len(s)-1
@@ -11,8 +9,8 @@ class Solution:
                 left+=1
                 right-=1
             else:
-                if not deleted: 
-                    return self.validPalindrome(s[left:right], True) or self.validPalindrome(s[left+1:right+1], True)
-                else:
-                    return False
+                return s[left:right] == s[left:right][::-1] or s[left+1:right+1] == s[left+1:right+1][::-1]
         return True
+    
+    
+    
