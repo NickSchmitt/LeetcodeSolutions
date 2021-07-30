@@ -1,9 +1,12 @@
 class Solution:
-    def removeDuplicates(self, nums):
+    def removeDuplicates(self, nums: List[int]) -> int:
         if not nums: return 0
-        end = 0
-        for i in range(1, len(nums)):
-            if nums[i] != nums[end]:
-                end += 1
-                nums[end] = nums[i]
-        return end + 1
+        
+        left_idx = 0
+        
+        for i in nums:
+            if nums[left_idx] != i:
+                left_idx+=1
+                nums[left_idx] = i
+        num_unique = left_idx+1
+        return num_unique  
