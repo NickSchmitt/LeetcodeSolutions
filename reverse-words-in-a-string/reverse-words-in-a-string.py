@@ -1,12 +1,13 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        x = s.strip().split(" ")
-        x = [word for word in x if word.isalnum()]
-        left, right = 0, len(x)-1
+        
+        words = [word for word in s.strip().split(" ") if word.isalnum()]
+        
+        left, right = 0, len(words)-1
         
         while left < right:
-            x[left], x[right] = x[right], x[left]
+            words[left], words[right] = words[right], words[left]
             left += 1
             right -=1
         
-        return " ".join(x)
+        return " ".join(words)
