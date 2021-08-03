@@ -16,15 +16,5 @@ class Solution:
             
             longest = max(longest, right-left+1)
             right+=1
-            
-            
-            
         
         return longest
-    
-    
-"""
-# init at beginning
-# add 1 to where we're at
-# if we're over 1, bring it in til we're not
-"""
