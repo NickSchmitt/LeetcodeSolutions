@@ -1,10 +1,6 @@
-function tribonacci(n: number): number {
-    const memo = {};
-    const dp = (num) => {
-        if(num<=2) return num ? 1 : 0
-        if(memo[num]) return memo[num]
-        memo[num] = dp(num-1) + dp(num-2) + dp(num-3)
-        return memo[num]
-    }
-    return dp(n)
+function tribonacci(num: number, memo = {}): number {
+    if(num<=2) return num ? 1 : 0
+    if(memo[num]) return memo[num]
+    memo[num] = tribonacci(num-1, memo) + tribonacci(num-2, memo) + tribonacci(num-3, memo)
+    return memo[num]
 };
